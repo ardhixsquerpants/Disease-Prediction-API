@@ -21,7 +21,7 @@ from sklearn.naive_bayes import GaussianNB
 
 
 
-file = open('models/RandomForest.p', 'rb')
+file = open('RandomForest.p', 'rb')
 model = pickle.load(file)
 file.close()
 app = Flask(__name__)
@@ -108,7 +108,7 @@ rfc.fit(X, np.ravel(y))
 
 @app.route('/')
 def home():
-    return render_template('index2.html')
+    return render_template('index.html')
 
 @app.route('/', methods= ['POST'])
 def pred():
@@ -137,7 +137,7 @@ def pred():
         pred4 = str(disease[i])
     else:
         pred4 = 'Not Found'
-    return render_template('index2.html', disease=pred4)
+    return render_template('index.html', disease=pred4)
 
 
 if __name__ == '__main__':
